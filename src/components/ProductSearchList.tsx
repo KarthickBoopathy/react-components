@@ -42,7 +42,10 @@ const ProductSearchList = () => {
                                     <span style={{ color: "#565959", fontSize: "smaller" }}>({item.discount}%)</span>
                                 </Typography>
                                 <Typography sx={{ fontSize: "medium", color: "green", }} variant="caption">{item.deliveryCost ? ("Delivery Charge : " + currencyFormatter(item.deliveryCost)) : "FREE DELIVERY"}</Typography>
-                                <Typography sx={{ color: "#B12704", }} variant="body2">Estimated delivery date : {calculateDeliveryDate(item.deliveryDays)}</Typography>
+                                <Typography variant="body2">
+                                    <span style={{ color: "#565959", }}>Get it by </span>
+                                    <span style={{ color: "red",fontWeight: 400 }}>{calculateDeliveryDate(item.deliveryDays)}</span>
+                                </Typography>
                             </Box>
                         </Grid>
                     </Grid>

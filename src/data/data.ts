@@ -19,7 +19,7 @@ export const productSearchListData = [
     mrp: 13499,
     discount: 19,
     deliveryCost: 0,
-    deliveryDays: 23,
+    deliveryDays: 3,
   },
   {
     productId: "3",
@@ -30,7 +30,7 @@ export const productSearchListData = [
     mrp: 8499,
     discount: 18,
     deliveryCost: 300,
-    deliveryDays: 23,
+    deliveryDays: 2,
   },
 ];
 

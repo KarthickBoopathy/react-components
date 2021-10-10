@@ -10,17 +10,24 @@ export const currencyFormatter = (price: number) => {
 export const calculateDeliveryDate = (numberOfDays: number) => {
   let nextMonth: boolean = false;
   const currentDate = new Date();
-
   const year = currentDate.getFullYear();
   const totalDays = new Date(year, currentDate.getMonth(), 0).getDate();
-  const day = DAYS[currentDate.getDay()];
+
+  //Getting Date
   let date: any = currentDate.getDate() + numberOfDays;
   if (date > totalDays) {
     nextMonth = true;
     date = date - totalDays;
   }
-  date = (date<10)? ('0'+date) : date;
-  let month = MONTHS[currentDate.getMonth()];
-  if (nextMonth) month = MONTHS[currentDate.getMonth() + 1];
-  return date + "-" + month + "-" + year + ", " + day;
+  date = date < 10 ? "0" + date : date;
+
+  //Getting Month
+  let monthInNumber = currentDate.getMonth();
+  if (nextMonth) monthInNumber = currentDate.getMonth() + 1;
+  let month = MONTHS[monthInNumber];
+
+  //Getting Day
+  const day = DAYS[new Date(year, monthInNumber, date).getDay()];
+
+  return day + ", " + month + " " + date;
 };
