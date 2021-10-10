@@ -35,7 +35,7 @@ const ProductSearchList = () => {
                         </Grid>
                         <Grid item xs={8}>
                             <Box>
-                                <Typography sx={style.textPointer} onClick={() => handleOpen(item.productId)}>{item.title}</Typography>
+                                <Typography sx={style.textPointer} variant="body1" onClick={() => handleOpen(item.productId)}>{item.title}</Typography>
                                 <Typography>
                                     <span><Link sx={style.price} variant="button" onClick={() => handleOpen(item.productId)}> {currencyFormatter(item.price)} </Link>  </span>
                                     <span style={{ textDecoration: "line-through", color: "#565959", fontSize: "smaller" }}>{currencyFormatter(item.mrp)} </span>
@@ -44,7 +44,7 @@ const ProductSearchList = () => {
                                 <Typography sx={{ fontSize: "medium", color: "green", }} variant="caption">{item.deliveryCost ? ("Delivery Charge : " + currencyFormatter(item.deliveryCost)) : "FREE DELIVERY"}</Typography>
                                 <Typography variant="body2">
                                     <span style={{ color: "#565959", }}>Get it by </span>
-                                    <span style={{ color: "red",fontWeight: 400 }}>{calculateDeliveryDate(item.deliveryDays)}</span>
+                                    <span style={{ color: "red", fontWeight: 400 }}>{calculateDeliveryDate(item.deliveryDays)}</span>
                                 </Typography>
                             </Box>
                         </Grid>
