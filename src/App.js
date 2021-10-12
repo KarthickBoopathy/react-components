@@ -1,12 +1,14 @@
 import './App.css';
+import Product from './components/Product';
 import ProductSearchList from './components/ProductSearchList';
 
 
 function App() {
   return (
     <>
-      {/* <ProductImage /> */}
-      <ProductSearchList/>
+      <Product />
+      {/* <ProductSearchList/> */}
+
     </>
   );
 }

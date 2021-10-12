@@ -21,10 +21,9 @@ const ProductSearchList = () => {
         <>
             {data.map((item, i) => (
                 <>
-                    <Box key={i}>
+                    <Box key={i} sx={{ p: 2 }}>
                         <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
-                            <Grid item xs={4}>
-                                <Box sx={style.productSearchListImage} onClick={() => handleOpen(item.productId)}>
+                            <Grid item xs={4} sx={style.productSearchListImage} onClick={() => handleOpen(item.productId)}>
                                     <Box
                                         key={"title" + item.productId}
                                         component="img"
@@ -32,7 +31,6 @@ const ProductSearchList = () => {
                                         src={item.image}
                                         alt='image'
                                     />
-                                </Box>
                             </Grid>
                             <Grid item xs={8}>
                                 <Box sx={{ p: 2 }}>
@@ -51,9 +49,7 @@ const ProductSearchList = () => {
                             </Grid>
                         </Grid>
                     </Box>
-            
                     <Divider />
-
                 </>
             ))}
         </>

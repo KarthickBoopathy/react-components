@@ -4,7 +4,6 @@ export const style = {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    width: "100%",
     background: "white",
   } as React.CSSProperties,
 
@@ -14,22 +13,30 @@ export const style = {
     color: "#3e75ab",
     cursor: "pointer",
     "&:hover": {
-      color: "#1b2a38"
+      color: "#1b2a38",
     },
   },
   price: {
     color: "#B12704",
     textDecoration: "none",
     cursor: "pointer",
-    // "&:hover": {
-    //   color: "crimson",
-    // },
   },
-  productGridList: {
+  productThumbnail: {
+    width: 50,
+    height: 50,
+    border: "1px solid #bdbcbc",
     cursor: "pointer",
-    display: "block",
-    margin: "auto",
-    height: 30,
-    width: 30,
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    background: "white",
+    "&:hover": {
+      border: "1px solid black",
+    },
   },
+  productThumbnailStack:{
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+  }
 };
