@@ -1,6 +1,7 @@
-import { Divider, Grid, Typography } from "@mui/material";
+import { Grid, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import ProductCost from "./ProductCost";
+import ProductDescription from "./ProductDescription";
 import ProductImage from "./ProductImage";
 
 const Product = () => {
@@ -15,12 +16,13 @@ const Product = () => {
             <Grid item xs={12} sm={6} md={6} lg={6}>
                 <ProductImage />
             </Grid>
-            <Grid item xs={12} sm={6}  md={6} lg={6} >
+            <Grid item xs={12} sm={6} md={6} lg={6} >
                 <ProductCost />
             </Grid>
+            <Grid item xs={12}>
+                <ProductDescription />
+            </Grid>
         </Grid>
-
-
     );
 }
 export default Product;

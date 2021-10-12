@@ -4,6 +4,7 @@ import { calculateDeliveryDate, currencyFormatter } from "../../common/formula";
 import { style } from "../../common/style";
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
+import { useState } from "react";
 
 const price = 34500;
 const mrp = 49900;
@@ -13,6 +14,7 @@ const deliveryDays = 3;
 
 
 const ProductCost = () => {
+    const [quantity, SetQuantity] = useState(1);
 
 
     const renderTitle = () => {
@@ -21,15 +23,6 @@ const ProductCost = () => {
                 <Typography variant="button" sx={{ color: "#1868b7" }}>Redmi Note 10S (Frost White, 6GB RAM, 64GB Storage) - Super Amoled Display | 64 MP Quad Camera | Alexa Built in</Typography>
                 <br /><br />
                 <Divider />
-            </>
-        );
-    }
-
-    const renderBuy = () => {
-        return (
-            <>
-                <Button variant="contained" color="success" startIcon={<ShoppingBasketIcon />} sx={style.productBuyButtons}>Buy</Button>
-                <Button variant="contained" color="warning" startIcon={<AddShoppingCartIcon />}>Cart</Button>
             </>
         );
     }
@@ -60,6 +53,15 @@ const ProductCost = () => {
                         <Typography sx={{ color: "forestgreen" }} variant="body1">{calculateDeliveryDate(deliveryDays)}</Typography>
                     </ListItem>
                 </List>
+            </>
+        );
+    }
+
+    const renderBuy = () => {
+        return (
+            <>
+                <Button variant="contained" color="success" startIcon={<ShoppingBasketIcon />} sx={style.productBuyButtons}>Buy</Button>
+                <Button variant="contained" color="warning" startIcon={<AddShoppingCartIcon />}>Cart</Button>
             </>
         );
     }
