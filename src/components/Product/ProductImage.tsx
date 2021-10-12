@@ -25,7 +25,7 @@ const ProductImage = () => {
 
         return (
             <>
-                <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
+                <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }} sx={{ p: 1 }}>
                     <Grid item xs={4} >
                         <Stack spacing={2} sx={style.productThumbnailStack}>
                             {data.map((item, i) => (

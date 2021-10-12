@@ -40,7 +40,7 @@ const ProductSearchList = () => {
                                         <span style={{ textDecoration: "line-through", color: "#565959", fontSize: "smaller" }}>{currencyFormatter(item.mrp)} </span>
                                         <span style={{ color: "#565959", fontSize: "smaller" }}>({item.discount}%)</span>
                                     </Typography>
-                                    <Typography sx={{  color: "green", fontSize: "smaller" }} >{item.deliveryCost ? ("Delivery Charge : " + currencyFormatter(item.deliveryCost)) : "FREE DELIVERY"}</Typography>
+                                    <Typography sx={{  color: "green", fontSize: "smaller" }} >{item.deliveryCost ? ("Delivery Cost : " + currencyFormatter(item.deliveryCost)) : "FREE DELIVERY"}</Typography>
                                     <Typography variant="body2">
                                         <span style={{ color: "#565959", }}>Get it by </span>
                                         <span style={{ color: "red"}}>{calculateDeliveryDate(item.deliveryDays)}</span>

@@ -50,4 +50,8 @@ export const productImageThumbnail = [
     image:
       "https://m.media-amazon.com/images/I/71sxlhYhKWL._AC_UY436_FMwebp_QL65_.jpg",
   },
+  {
+    productId: "4",
+    image: "https://m.media-amazon.com/images/I/81SJHWh-dfL._SX679_.jpg",
+  },
 ];

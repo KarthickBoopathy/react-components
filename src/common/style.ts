@@ -38,5 +38,8 @@ export const style = {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
+  },
+  productBuyButtons:{
+    marginRight: 2
   }
 };
