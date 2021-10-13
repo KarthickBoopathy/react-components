@@ -25,7 +25,7 @@ const ProductSearchList = () => {
                         <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
                             <Grid item xs={4} sx={style.productSearchListImage} onClick={() => handleOpen(item.productId)}>
                                 <Box
-                                    key={"title" + item.productId}
+                                    key={item.productId}
                                     component="img"
                                     sx={{ p: 2, maxWidth: "-webkit-fill-available" }}
                                     src={item.image}
