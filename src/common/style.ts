@@ -8,9 +8,8 @@ export const style = {
   } as React.CSSProperties,
 
   textPointer: {
-    fontSize: "small",
-    fontWeight: 450,
-    color: "#3e75ab",
+    // color: "#3e75ab",
+    color: "#1868b7" ,
     cursor: "pointer",
     "&:hover": {
       color: "#1b2a38",
@@ -40,6 +39,11 @@ export const style = {
     alignItems: "center",
   },
   productBuyButtons:{
-    marginRight: 2
+    transition: "transform .2s",
+    "&:hover": {
+      msTransform: "scale(1.075)",
+      WebkitTransform: "scale(1.075)",
+      transform: "scale(1.075)",
+    },
   }
 };

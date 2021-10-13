@@ -6,7 +6,7 @@ export const productSearchListData = [
     price: 41999,
     mrp: 49900,
     discount: 16,
-    deliveryCost: 300,
+    deliveryCostOver: 300,
     deliveryDays: 23,
   },
   {
@@ -18,7 +18,7 @@ export const productSearchListData = [
     price: 10999,
     mrp: 13499,
     discount: 19,
-    deliveryCost: 0,
+    deliveryCostOver: 0,
     deliveryDays: 3,
   },
   {
@@ -30,7 +30,7 @@ export const productSearchListData = [
     price: 6999,
     mrp: 8499,
     discount: 18,
-    deliveryCost: 300,
+    deliveryCostOver: 300,
     deliveryDays: 2,
   },
 ];

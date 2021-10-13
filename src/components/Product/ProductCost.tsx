@@ -1,10 +1,10 @@
-import { Button, Divider, Link, List, ListItem, ListItemText, Typography } from "@mui/material";
+import { Button, Divider, FormControl, Grid, InputLabel, Link, List, ListItem, ListItemText, MenuItem, Select, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import { calculateDeliveryDate, currencyFormatter } from "../../common/formula";
 import { style } from "../../common/style";
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
-import { useState } from "react";
+import React, { useState } from "react";
 
 const price = 34500;
 const mrp = 49900;
@@ -15,21 +15,23 @@ const deliveryDays = 3;
 
 const ProductCost = () => {
     const [quantity, SetQuantity] = useState(1);
-
+    const handleChange = (event: any) => {
+        SetQuantity(event.target.value);
+    };
 
     const renderTitle = () => {
         return (
-            <>
+            <React.Fragment>
                 <Typography variant="button" sx={{ color: "#1868b7" }}>Redmi Note 10S (Frost White, 6GB RAM, 64GB Storage) - Super Amoled Display | 64 MP Quad Camera | Alexa Built in</Typography>
                 <br /><br />
                 <Divider />
-            </>
+            </React.Fragment>
         );
     }
 
     const renderCost = () => {
         return (
-            <>
+            <React.Fragment>
                 <List sx={{ width: '100%', maxWidth: 450, bgcolor: 'background.paper' }}>
                     <ListItem>
                         <ListItemText secondary="M.R.P" />
@@ -53,16 +55,46 @@ const ProductCost = () => {
                         <Typography sx={{ color: "forestgreen" }} variant="body1">{calculateDeliveryDate(deliveryDays)}</Typography>
                     </ListItem>
                 </List>
-            </>
+            </React.Fragment>
         );
     }
 
     const renderBuy = () => {
         return (
-            <>
-                <Button variant="contained" color="success" startIcon={<ShoppingBasketIcon />} sx={style.productBuyButtons}>Buy</Button>
-                <Button variant="contained" color="warning" startIcon={<AddShoppingCartIcon />}>Cart</Button>
-            </>
+            <React.Fragment>
+                <Grid container>
+                    <Grid item xs={12}>
+                        <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
+                            <InputLabel id="item-quantity">Quantity</InputLabel>
+                            <Select
+                                labelId="select-item-quantity-label"
+                                id="simple-select-standard"
+                                value={quantity}
+                                label="Quantity"
+                                onChange={handleChange}
+                                defaultValue={quantity}
+                                sx={{ width: "100%" }}
+                            >
+                                <MenuItem value={1}>1</MenuItem>
+                                <MenuItem value={2}>2</MenuItem>
+                                <MenuItem value={3}>3</MenuItem>
+                            </Select>
+                        </FormControl>
+                    </Grid>
+                    <Grid item xs={12}>
+                        <Box sx={{ p: 1 }}>
+                            <Grid container spacing={5}>
+                                <Grid item xs={6}>
+                                    <Button variant="contained" fullWidth color="warning" sx={style.productBuyButtons} startIcon={<AddShoppingCartIcon />}>Add to Cart</Button>
+                                </Grid>
+                                <Grid item xs={6}>
+                                    <Button variant="contained" fullWidth color="success" sx={style.productBuyButtons} startIcon={<ShoppingBasketIcon />}>Buy Now</Button>
+                                </Grid>
+                            </Grid>
+                        </Box>
+                    </Grid>
+                </Grid>
+            </React.Fragment>
         );
     }
 

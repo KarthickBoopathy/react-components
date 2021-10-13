@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Grid, Stack } from "@mui/material";
 import { Box } from "@mui/system";
 import { productImageThumbnail } from "../../data/data";
@@ -24,8 +24,8 @@ const ProductImage = () => {
     const renderDesktopView = () => {
 
         return (
-            <>
-                <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }} sx={{ p: 1 }}>
+            <React.Fragment>
+                <Grid container sx={{ p: 1 }}>
                     <Grid item xs={4} >
                         <Stack spacing={2} sx={style.productThumbnailStack}>
                             {data.map((item, i) => (
@@ -50,14 +50,14 @@ const ProductImage = () => {
                         />
                     </Grid>
                 </Grid>
-            </>
+            </React.Fragment>
         )
     }
 
     return (
-        <>
+        <React.Fragment>
             {renderDesktopView()}
-        </>
+        </React.Fragment>
     )
 
 }

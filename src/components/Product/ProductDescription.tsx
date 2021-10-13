@@ -1,4 +1,5 @@
 import { Box } from "@mui/system";
+import React from "react";
 import SimpleAccordion from "../SimpleAccordion";
 
 type Props = {
@@ -27,27 +28,19 @@ const ProductDescription = ({ specifications, description }: Props) => {
 
     const renderSpecification = () => {
 
-        // for (const [key, value] of Object.entries(specifications ?? [])) {
-        //     console.log(key, value);
-        // }
-        Object.entries(specifications ?? []).forEach(([key, value]) => {
-            console.log(key, value);
-        })
-
-
         return (
-            <>
+            <React.Fragment>
                 <h1>Hi</h1>
-            </>
+            </React.Fragment>
         );
     }
     const renderDescription = () => {
         return (
-            <>
+            <React.Fragment>
                 {description?.map((item, i) => (
                     <li key={i}>{item}</li>
                 ))}
-            </>
+            </React.Fragment>
         );
     }
 
