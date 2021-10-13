@@ -1,17 +1,14 @@
 import { Divider, Grid, Link, Typography } from "@mui/material";
 import { Box } from "@mui/system";
-import React, { useEffect, useState } from "react";
-import { calculateDeliveryDate, currencyFormatter } from "../common/formula";
-import { style } from "../common/style";
-import { productSearchListData } from "../data/data";
+import React from "react";
+import { calculateDeliveryDate, currencyFormatter } from "../../common/formula";
+import { style } from "../../common/style";
 
+type Props = {
+    data: any[];
+}
 
-const ProductSearchList = () => {
-    const [data, SetData] = useState<any[]>([]);
-
-    useEffect(() => {
-        SetData(productSearchListData);
-    }, []);
+const ProductList = ({ data }: Props) => {
 
     const handleOpen = (_id: any) => {
         console.log(_id);
@@ -21,6 +18,7 @@ const ProductSearchList = () => {
         <React.Fragment>
             {data.map((item, i) => (
                 <React.Fragment key={i}>
+                    <Divider />
                     <Box sx={{ p: 2 }}>
                         <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
                             <Grid item xs={4} sx={style.productSearchListImage} onClick={() => handleOpen(item.productId)}>
@@ -49,10 +47,9 @@ const ProductSearchList = () => {
                             </Grid>
                         </Grid>
                     </Box>
-                    <Divider />
                 </React.Fragment>
             ))}
         </React.Fragment>
     );
 };
-export default ProductSearchList;
+export default ProductList;

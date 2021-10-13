@@ -6,14 +6,11 @@ import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
 import React, { useState } from "react";
 
-const price = 34500;
-const mrp = 49900;
-const discount = 23;
-const deliveryCost = 300;
-const deliveryDays = 3;
+type Props = {
+    data?: any;
+}
 
-
-const ProductCost = () => {
+const ProductCost = ({ data }: Props) => {
     const [quantity, SetQuantity] = useState(1);
     const handleChange = (event: any) => {
         SetQuantity(event.target.value);
@@ -22,7 +19,7 @@ const ProductCost = () => {
     const renderTitle = () => {
         return (
             <React.Fragment>
-                <Typography variant="button" sx={{ color: "#1868b7" }}>Redmi Note 10S (Frost White, 6GB RAM, 64GB Storage) - Super Amoled Display | 64 MP Quad Camera | Alexa Built in</Typography>
+                <Typography variant="button" sx={{ color: "#1868b7" }}>{data?.title ?? ""}</Typography>
                 <br /><br />
                 <Divider />
             </React.Fragment>
@@ -36,23 +33,23 @@ const ProductCost = () => {
                     <ListItem>
                         <ListItemText secondary="M.R.P" />
                         <Typography sx={{ textDecoration: "line-through", color: "#565959", fontSize: "small" }}>
-                            {currencyFormatter(mrp)}
+                            {currencyFormatter(data?.mrp ?? 0)}
                         </Typography>
                     </ListItem>
                     <ListItem>
                         <ListItemText secondary="Deal of the Day" />
                         <Typography>
-                            <span><Link sx={style.price} variant="h6"> {currencyFormatter(price)} </Link>  </span>
-                            <span style={{ color: "#565959", fontSize: "smaller" }}>({discount}%)</span>
+                            <span><Link sx={style.price} variant="h6"> {currencyFormatter(data?.price ?? 0)} </Link>  </span>
+                            <span style={{ color: "#565959", fontSize: "smaller" }}>({data?.discount ?? 0}%)</span>
                         </Typography>
                     </ListItem>
                     <ListItem>
                         <ListItemText secondary="Delivery Cost" />
-                        <Typography sx={{ color: "forestgreen" }} variant="body1">{deliveryCost ? (currencyFormatter(deliveryCost)) : "FREE DELIVERY"}</Typography>
+                        <Typography sx={{ color: "forestgreen" }} variant="body1">{data?.deliveryCost ? (currencyFormatter(data?.deliveryCost ?? 0)) : "FREE DELIVERY"}</Typography>
                     </ListItem>
                     <ListItem>
                         <ListItemText secondary="Get it by" />
-                        <Typography sx={{ color: "forestgreen" }} variant="body1">{calculateDeliveryDate(deliveryDays)}</Typography>
+                        <Typography sx={{ color: "forestgreen" }} variant="body1">{calculateDeliveryDate(data?.deliveryDays ?? 0)}</Typography>
                     </ListItem>
                 </List>
             </React.Fragment>
@@ -60,6 +57,12 @@ const ProductCost = () => {
     }
 
     const renderBuy = () => {
+
+        const quantityCount = [];
+        for (var i = 1; i <= 10; i++) {
+            quantityCount.push(i);
+        }
+
         return (
             <React.Fragment>
                 <Grid container>
@@ -75,20 +78,20 @@ const ProductCost = () => {
                                 defaultValue={quantity}
                                 sx={{ width: "100%" }}
                             >
-                                <MenuItem value={1}>1</MenuItem>
-                                <MenuItem value={2}>2</MenuItem>
-                                <MenuItem value={3}>3</MenuItem>
+                                {quantityCount.map((qty) => (
+                                    <MenuItem key={qty} value={qty}>{qty}</MenuItem>
+                                ))}
                             </Select>
                         </FormControl>
                     </Grid>
                     <Grid item xs={12}>
                         <Box sx={{ p: 1 }}>
-                            <Grid container spacing={5}>
+                            <Grid container spacing={3}>
                                 <Grid item xs={6}>
-                                    <Button variant="contained" fullWidth color="warning" sx={style.productBuyButtons} startIcon={<AddShoppingCartIcon />}>Add to Cart</Button>
+                                    <Button variant="contained" fullWidth color="warning" sx={style.productBuyButtons} startIcon={<AddShoppingCartIcon />}>Cart</Button>
                                 </Grid>
                                 <Grid item xs={6}>
-                                    <Button variant="contained" fullWidth color="success" sx={style.productBuyButtons} startIcon={<ShoppingBasketIcon />}>Buy Now</Button>
+                                    <Button variant="contained" fullWidth color="success" sx={style.productBuyButtons} startIcon={<ShoppingBasketIcon />}>Buy</Button>
                                 </Grid>
                             </Grid>
                         </Box>

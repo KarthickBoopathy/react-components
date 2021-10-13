@@ -1,25 +1,23 @@
 import React, { useEffect, useState } from "react";
 import { Grid, Stack } from "@mui/material";
 import { Box } from "@mui/system";
-import { productImageThumbnail } from "../../data/data";
 import { style } from "../../common/style";
 
+type Props = {
+    data?: any[];
+}
 
-
-const ProductImage = () => {
-
-    const [data, SetData] = useState<any[]>([]);
+const ProductImage = ({ data }: Props) => {
     const [displayImage, SetDisplayImage] = useState("");
 
     useEffect(() => {
-        SetData(productImageThumbnail);
-        SetDisplayImage(productImageThumbnail[0].image);
-    }, []);
+        if (data)
+            SetDisplayImage(data[0].image)
+    }, [data]);
 
     const handleOpen = (image: any) => {
         SetDisplayImage(image);
     }
-
 
     const renderDesktopView = () => {
 
@@ -28,7 +26,7 @@ const ProductImage = () => {
                 <Grid container sx={{ p: 1 }}>
                     <Grid item xs={4} >
                         <Stack spacing={2} sx={style.productThumbnailStack}>
-                            {data.map((item, i) => (
+                            {data?.map((item, i) => (
                                 <Box key={i} sx={style.productThumbnail} onMouseOver={() => handleOpen(item.image)} onClick={() => handleOpen(item.image)}>
                                     <Box
                                         component="img"
