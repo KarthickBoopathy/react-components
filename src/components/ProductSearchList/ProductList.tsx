@@ -1,6 +1,6 @@
 import { Divider, Grid, Link, Typography } from "@mui/material";
 import { Box } from "@mui/system";
-import React from "react";
+import React, { useCallback } from "react";
 import { calculateDeliveryDate, currencyFormatter } from "../../common/formula";
 import { style } from "../../common/style";
 
@@ -10,9 +10,9 @@ type Props = {
 
 const ProductList = ({ data }: Props) => {
 
-    const handleOpen = (_id: any) => {
-        console.log(_id);
-    }
+    const handleOpen = useCallback((prodId)=>{
+        console.log(prodId);
+    },[]);
 
     return (
         <React.Fragment>
@@ -38,7 +38,7 @@ const ProductList = ({ data }: Props) => {
                                         <span style={{ textDecoration: "line-through", color: "#565959", fontSize: "smaller" }}>{currencyFormatter(item.mrp)} </span>
                                         <span style={{ color: "#565959", fontSize: "smaller" }}>({item.discount}%)</span>
                                     </Typography>
-                                    <Typography sx={{ color: "green", fontSize: "smaller" }} >{item.deliveryCostOver ? ("FREE Delivery over " + currencyFormatter(item.deliveryCostOver)) : "FREE Delivery"}</Typography>
+                                    <Typography sx={{ color: "green", fontSize: "smaller" }} >{item.freeDeliveryOver ? ("FREE Delivery over " + currencyFormatter(item.freeDeliveryOver)) : "FREE Delivery"}</Typography>
                                     <Typography variant="body2">
                                         <span style={{ color: "#565959", }}>Get it by </span>
                                         <span style={{ color: "red" }}>{calculateDeliveryDate(item.deliveryDays)}</span>

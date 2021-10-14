@@ -13,7 +13,7 @@ type Props = {
 
 const ProductDescription = ({ specifications, description }: Props) => {
 
-    console.log(specifications);
+    console.log("Specifications", specifications);
 
     const renderSpecification = () => {
 

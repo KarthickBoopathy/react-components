@@ -1,11 +1,13 @@
 export type productDetails = {
-  title: string;
-  price: number;
-  mrp: number;
-  discount: number;
-  deliveryCost: number;
-  deliveryDays: number;
-  images: any[];
-  description: string[];
-  specifications: any[];
+  productId?: string;
+  title?: string;
+  price?: number;
+  mrp?: number;
+  discount?: number;
+  deliveryCost?: number;
+  freeDeliveryOver?: number;
+  deliveryDays?: number;
+  images?: any[];
+  description?: string[];
+  specifications?: any[];
 };

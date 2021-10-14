@@ -4,7 +4,7 @@ import { calculateDeliveryDate, currencyFormatter } from "../../common/formula";
 import { style } from "../../common/style";
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
-import React, { useState } from "react";
+import React, { useCallback, useState } from "react";
 
 type Props = {
     data?: any;
@@ -12,9 +12,18 @@ type Props = {
 
 const ProductCost = ({ data }: Props) => {
     const [quantity, SetQuantity] = useState(1);
+
     const handleChange = (event: any) => {
         SetQuantity(event.target.value);
     };
+
+    const handleAddtoCart = useCallback((prodId)=>{
+        console.log(prodId, quantity);
+    },[quantity]);
+
+    const handleBuy = useCallback((prodId)=>{
+        console.log(prodId, quantity);
+    },[quantity]);
 
     const renderTitle = () => {
         return (
@@ -88,10 +97,10 @@ const ProductCost = ({ data }: Props) => {
                         <Box sx={{ p: 1 }}>
                             <Grid container spacing={3}>
                                 <Grid item xs={6}>
-                                    <Button variant="contained" fullWidth color="warning" sx={style.productBuyButtons} startIcon={<AddShoppingCartIcon />}>Cart</Button>
+                                    <Button variant="contained" fullWidth color="warning" sx={style.productBuyButtons} startIcon={<AddShoppingCartIcon />} onClick={()=>handleAddtoCart(data?.productId)}>Cart</Button>
                                 </Grid>
                                 <Grid item xs={6}>
-                                    <Button variant="contained" fullWidth color="success" sx={style.productBuyButtons} startIcon={<ShoppingBasketIcon />}>Buy</Button>
+                                    <Button variant="contained" fullWidth color="success" sx={style.productBuyButtons} startIcon={<ShoppingBasketIcon />} onClick={()=>handleBuy(data?.productId)}>Buy</Button>
                                 </Grid>
                             </Grid>
                         </Box>

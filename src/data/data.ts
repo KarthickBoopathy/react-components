@@ -8,7 +8,7 @@ export const productSearchListData = [
     price: 41999,
     mrp: 49900,
     discount: 16,
-    deliveryCostOver: 300,
+    freeDeliveryOver: 300,
     deliveryDays: 23,
   },
   {
@@ -20,7 +20,7 @@ export const productSearchListData = [
     price: 10999,
     mrp: 13499,
     discount: 19,
-    deliveryCostOver: 0,
+    freeDeliveryOver: 0,
     deliveryDays: 3,
   },
   {
@@ -32,7 +32,7 @@ export const productSearchListData = [
     price: 6999,
     mrp: 8499,
     discount: 18,
-    deliveryCostOver: 300,
+    freeDeliveryOver: 300,
     deliveryDays: 2,
   },
 ];
@@ -40,30 +40,28 @@ export const productSearchListData = [
 
 
 export const productData: productDetails = {
+  productId: "p001",
   title:
     "Redmi Note 10S (Frost White, 6GB RAM, 64GB Storage) - Super Amoled Display | 64 MP Quad Camera | Alexa Built in",
   price: 34500,
   mrp: 49900,
   discount: 23,
   deliveryCost: 300,
+  freeDeliveryOver: 300,
   deliveryDays: 3,
   images: [
     {
-      productId: "prod1",
       image: "https://m.media-amazon.com/images/I/71w3oJ7aWyL._AC_UY218_.jpg",
     },
     {
-      productId: "prod2",
       image:
         "https://m.media-amazon.com/images/I/81JasJd-vRL._AC_UY327_FMwebp_QL65_.jpg",
     },
     {
-      productId: "prod3",
       image:
         "https://m.media-amazon.com/images/I/71sxlhYhKWL._AC_UY436_FMwebp_QL65_.jpg",
     },
     {
-      productId: "prod4",
       image: "https://m.media-amazon.com/images/I/81SJHWh-dfL._SX679_.jpg",
     },
   ],
