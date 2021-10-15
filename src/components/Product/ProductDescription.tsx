@@ -1,5 +1,7 @@
+import { Grid, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from "@mui/material";
 import { Box } from "@mui/system";
 import React from "react";
+import { Row } from "react-bootstrap";
 import SimpleAccordion from "../SimpleAccordion";
 
 type Props = {
@@ -13,12 +15,34 @@ type Props = {
 
 const ProductDescription = ({ specifications, description }: Props) => {
 
-    console.log("Specifications", specifications);
-
     const renderSpecification = () => {
+        const column: any[] = [];
+        const row: any[] = [];
+        Object.entries(specifications ?? []).forEach(
+            ([key, value]) => {
+                column.push(key);
+                row.push(value);
+            }
+        );
 
         return (
             <React.Fragment>
+                <TableContainer>
+                    <Table>
+                        <TableHead>
+                            <TableRow>
+                                {column.map((item, i) => (
+                                    <TableCell component="th" key={i}>{item}</TableCell>))}
+                            </TableRow>
+                        </TableHead>
+                        <TableBody>
+                            <TableRow>
+                                {row.map((item, i) => (
+                                    <TableCell component="th" key={i}>{item}</TableCell>))}
+                            </TableRow>
+                        </TableBody>
+                    </Table>
+                </TableContainer>
             </React.Fragment>
         );
     }

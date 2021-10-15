@@ -71,11 +71,13 @@ export const productData: productDetails = {
     "Qualcomm SDM 778G Octa Core 2.4GHz,1.8GHz Processor with the 11 band support for a True 5G experience",
     "Android v11.0, One UI 3.1 operating system, 5000mAH lithium-ion battery, 1 year manufacturer warranty for device and 6 months manufacturer warranty for in-box accessories including batteries from the date of purchase",
   ],
-
-  specifications: [
-    { "Model Name": "Samsung Galaxy M52 5G" },
-    { "Wireless Carrier": "Unlocked for All Carriers" },
-    { "Brand": "Samsung" },
-    { "Form factor": "Bar" },
-  ],
+  specifications: {
+    "Model Name": "Samsung Galaxy M52 5G",
+    "Wireless Carrier": "Unlocked for All Carriers",
+    "Brand": "Samsung",
+    "Form factor": "Bar",
+  },
+  replacementInDays: 7,
+  deliveryService: "DTH",
+  warrantyInYear: 1,
 };
