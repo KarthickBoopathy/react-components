@@ -9,5 +9,8 @@ export type productDetails = {
   deliveryDays?: number;
   images?: any[];
   description?: string[];
-  specifications?: any[];
+  specifications?: any;
+  replacementInDays?: number;
+  deliveryService?: string;
+  warrantyInYear?: number;
 };

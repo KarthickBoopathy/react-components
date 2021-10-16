@@ -1,10 +1,16 @@
-import { Button, Divider, FormControl, Grid, InputLabel, Link, List, ListItem, ListItemText, MenuItem, Select, Typography } from "@mui/material";
+import { Button, Divider, FormControl, Grid, InputLabel, Link, List, ListItem, ListItemText, MenuItem, Select, TableContainer, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import { calculateDeliveryDate, currencyFormatter } from "../../common/formula";
 import { style } from "../../common/style";
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
 import React, { useCallback, useState } from "react";
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
+
 
 type Props = {
     data?: any;
@@ -17,13 +23,13 @@ const ProductCost = ({ data }: Props) => {
         SetQuantity(event.target.value);
     };
 
-    const handleAddtoCart = useCallback((prodId)=>{
+    const handleAddtoCart = useCallback((prodId) => {
         console.log(prodId, quantity);
-    },[quantity]);
+    }, [quantity]);
 
-    const handleBuy = useCallback((prodId)=>{
+    const handleBuy = useCallback((prodId) => {
         console.log(prodId, quantity);
-    },[quantity]);
+    }, [quantity]);
 
     const renderTitle = () => {
         return (
@@ -97,10 +103,10 @@ const ProductCost = ({ data }: Props) => {
                         <Box sx={{ p: 1 }}>
                             <Grid container spacing={3}>
                                 <Grid item xs={6}>
-                                    <Button variant="contained" fullWidth color="warning" sx={style.productBuyButtons} startIcon={<AddShoppingCartIcon />} onClick={()=>handleAddtoCart(data?.productId)}>Cart</Button>
+                                    <Button variant="contained" fullWidth color="warning" sx={style.productBuyButtons} startIcon={<AddShoppingCartIcon />} onClick={() => handleAddtoCart(data?.productId)}>Cart</Button>
                                 </Grid>
                                 <Grid item xs={6}>
-                                    <Button variant="contained" fullWidth color="success" sx={style.productBuyButtons} startIcon={<ShoppingBasketIcon />} onClick={()=>handleBuy(data?.productId)}>Buy</Button>
+                                    <Button variant="contained" fullWidth color="success" sx={style.productBuyButtons} startIcon={<ShoppingBasketIcon />} onClick={() => handleBuy(data?.productId)}>Buy</Button>
                                 </Grid>
                             </Grid>
                         </Box>
@@ -110,11 +116,38 @@ const ProductCost = ({ data }: Props) => {
         );
     }
 
+    const renderWarranty = () => {
+
+        return (
+            <React.Fragment>
+                <TableContainer>
+                    <Table>
+                        <TableHead>
+                            <TableRow>
+                                <TableCell>Replacement</TableCell>
+                                <TableCell>Delivery</TableCell>
+                                <TableCell>Warranty</TableCell>
+                            </TableRow>
+                        </TableHead>
+                        <TableBody>
+                            <TableRow>
+                                <TableCell>{data?.replacementInDays ?? 0} Days</TableCell>
+                                <TableCell>{data?.deliveryService ?? 0}</TableCell>
+                                <TableCell>{data?.warrantyInYear ?? 0} Year</TableCell>
+                            </TableRow>
+                        </TableBody>
+                    </Table>
+                </TableContainer>
+            </React.Fragment>
+        );
+    }
+
     return (
         <Box sx={{ p: 1 }}>
             {renderTitle()}
             {renderCost()}
             {renderBuy()}
+            {renderWarranty()}
         </Box>
     )
 }

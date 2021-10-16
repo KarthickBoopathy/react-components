@@ -1,16 +1,12 @@
+import React from 'react';
 import './App.css';
-import Product from './components/Product/Product';
-import ProductList from './components/ProductSearchList/ProductList';
-import ProductSearchList from './components/ProductSearchList/ProductSearchList';
-
-
+import NavBars from './components/NavBars/NavBars';
 
 function App() {
   return (
-    <>
-      <Product />
-      {/* <ProductSearchList /> */}
-    </>
+    <React.Fragment>
+      <NavBars />
+    </React.Fragment>
   );
 }
 
