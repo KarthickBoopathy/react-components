@@ -1,2 +1,2 @@
-export const MOBILE = '/product/product';
-export const LIST = '/product/list';
+export const MOBILE = '/product';
+export const LIST = '/list';
