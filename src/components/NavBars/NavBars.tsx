@@ -1,32 +1,46 @@
 import 'bootstrap/dist/css/bootstrap.css';
-import { Button, Form, FormControl, Nav, Navbar } from 'react-bootstrap';
+import { Nav, Navbar } from 'react-bootstrap';
 import NavbarToggle from 'react-bootstrap/esm/NavbarToggle';
 import NavbarCollapse from 'react-bootstrap/esm/NavbarCollapse';
 import { APPLICATION_MENUS } from './Root';
-import React from 'react';
+import React, { useCallback, useState } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import { TextField, InputAdornment } from '@mui/material';
+import { style } from '../../common/style';
+import SearchIcon from '@mui/icons-material/Search';
+
 const NavBars = () => {
+    const [search, SetSearch] = useState('');
+    const handleSearch = useCallback((searchItem) => {
+        console.log(searchItem);
+    }, [])
 
-
+    console.log(search);
     const renderSearchNavBar = () => {
 
         return (
             <React.Fragment>
                 <Navbar style={{ background: "#3b5998" }} variant="dark" sticky="top">
-                    <Navbar.Brand>
+
+                    <Navbar.Brand style={{ padding: 5 }}>
                         <img alt="Brand" src="https://secure-media.hotstarext.com/web-assets/prod/images/brand-logos/disney-hotstar-logo-dark.svg" />{' '}
                     </Navbar.Brand>
-                    <Form className="d-flex">
-                        <FormControl
-                            type="search"
-                            placeholder="Search"
-                            className="mr-2"
-                            aria-label="Search"
-                        />
-                        <Button variant="outline-success">Search</Button>
-                    </Form>
+                    <TextField 
+                        id="standard"
+                        placeholder="Search"
+                        InputProps={{
+                            style: style.searchBox,
+                            endAdornment: (
+                                <InputAdornment position="end">
+                                    <SearchIcon sx={{color: "white"}} />
+                                </InputAdornment>
+                            ),
+                        }}
+                        sx={{width: "85%", margin: "auto"}}
+                        onChange={(event) => SetSearch(event.target.value)}
+                        variant="standard" />
                     <Nav className="ms-auto">
                         <Nav.Link href="#memes"><AccountCircleIcon /></Nav.Link>
                         <Nav.Link href="#deets"><ShoppingCartIcon /></Nav.Link>
@@ -44,7 +58,7 @@ const NavBars = () => {
                     <Navbar.Brand>{' '}</Navbar.Brand>
                     <NavbarToggle />
                     <NavbarCollapse>
-                        <Nav>
+                        <Nav style={{ marginLeft: 10 }}>
                             {APPLICATION_MENUS.map((item, i) => (
                                 <Nav.Link key={i} href={item.path} target="_blank" >{item.menu}</Nav.Link>
                             ))}

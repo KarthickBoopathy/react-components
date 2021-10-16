@@ -45,9 +45,7 @@ export const style = {
       transform: "scale(1.075)",
     },
   },
-  navlinks: {
-    "&:hover": {
-      border: "1px solid black",
-    },
-  } as React.CSSProperties,
+  searchBox: {
+    color: "white"
+  }
 };
