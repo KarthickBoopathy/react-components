@@ -10,16 +10,22 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import { TextField, InputAdornment } from '@mui/material';
 import { style } from '../../common/style';
 import SearchIcon from '@mui/icons-material/Search';
+import Product from '../Product/Product';
 
 const NavBars = () => {
     const [search, SetSearch] = useState('');
-    const handleSearch = useCallback((searchItem) => {
-        console.log(searchItem);
-    }, [])
 
-    console.log(search);
+    const handleSearch = useCallback((event) => {
+        if (search && event.key === "Enter")
+            console.log("search", search);
+    }, [search])
+
+    const handleSearchClick = useCallback(() => {
+        if (search)
+            console.log("search", search);
+    }, [search])
+
     const renderSearchNavBar = () => {
-
         return (
             <React.Fragment>
                 <Navbar style={{ background: "#3b5998" }} variant="dark" sticky="top">
@@ -27,20 +33,23 @@ const NavBars = () => {
                     <Navbar.Brand style={{ padding: 5 }}>
                         <img alt="Brand" src="https://secure-media.hotstarext.com/web-assets/prod/images/brand-logos/disney-hotstar-logo-dark.svg" />{' '}
                     </Navbar.Brand>
-                    <TextField 
+
+                    <TextField
                         id="standard"
                         placeholder="Search"
                         InputProps={{
                             style: style.searchBox,
                             endAdornment: (
                                 <InputAdornment position="end">
-                                    <SearchIcon sx={{color: "white"}} />
+                                    <SearchIcon sx={style.searchBox} onClick={handleSearchClick} />
                                 </InputAdornment>
                             ),
                         }}
-                        sx={{width: "85%", margin: "auto"}}
+                        sx={{ width: "85%", margin: "auto" }}
                         onChange={(event) => SetSearch(event.target.value)}
+                        onKeyDown={handleSearch}
                         variant="standard" />
+
                     <Nav className="ms-auto">
                         <Nav.Link href="#memes"><AccountCircleIcon /></Nav.Link>
                         <Nav.Link href="#deets"><ShoppingCartIcon /></Nav.Link>
@@ -75,7 +84,7 @@ const NavBars = () => {
             <React.Fragment>
                 <BrowserRouter>
                     <Switch>
-                        <Route exact path="/" />
+                        <Route exact path="/" component={Product} />
                         {APPLICATION_MENUS.map((item, i) => (
                             <Route key={i} path={item.path} component={item.component} />
                         ))}

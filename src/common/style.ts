@@ -46,6 +46,13 @@ export const style = {
     },
   },
   searchBox: {
-    color: "white"
-  }
+    color: "white",
+    cursor: "pointer",
+    transition: "transform .2s",
+    "&:hover": {
+      msTransform: "scale(1.075)",
+      WebkitTransform: "scale(1.075)",
+      transform: "scale(1.075)",
+    },
+  },
 };
