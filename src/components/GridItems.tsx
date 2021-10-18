@@ -1,7 +1,8 @@
-import { Card, CardActionArea, CardMedia, Grid, Link, Paper, Typography } from "@mui/material";
-import { useCallback, useEffect, useState } from "react";
+import { Grid, Link, Paper, Stack, Typography } from "@mui/material";
+import React, { useEffect, useState } from "react";
 import { itemData } from "../data/data";
-import { style } from "../common/style";
+import { Box } from "@mui/system";
+
 
 const GridItems = () => {
     const [data, SetData] = useState<any[]>([]);
@@ -11,59 +12,71 @@ const GridItems = () => {
         SetData(itemData);
     }, []);
 
-    return (
-        <>
-            <Paper square elevation={2}>
+    const renderTitle = () => {
 
-                <Grid container sx={{ width: "100" }}>
-                    <Grid item xs={12}>
-                        <Typography variant="button" gutterBottom sx={{ p: 2, textAlign: "center" }}>
-                            Under ₹599 | Pocket-friendly Fashion
-                        </Typography>
+        return (
+            <React.Fragment>
+                <Grid item xs={12} sx={{ textAlign: "center" }}>
+                    <Typography variant="button" sx={{ fontSize: "small", color: "crimson" }}>
+                        Under ₹599 | Pocket-friendly Fashion Under -friendly Fashion
+                    </Typography>
+                </Grid>
+            
+            </React.Fragment>
+        );
+    }
+
+    const renderOffers = () => {
+        return (
+            <React.Fragment>
+                {data.map((item, i) => (
+                    <Grid
+                        item
+                        key={i}
+                        xs={numRows > 1 ? 6 : 12}
+
+                    >
+                        <Stack sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
+                            <Box
+                                key={"title"}
+                                component="img"
+                                sx={{ width: "85%", height: "85%" }}
+                                src={item.img}
+                                alt='image'
+                            />
+                            <Typography gutterBottom sx={{ fontSize: "x-small" }}>
+                                {item.title}
+                            </Typography>
+                        </Stack>
                     </Grid>
+                ))}
+            </React.Fragment>
+        );
+    }
 
-                    {
-                        data.map((item, i) => (
-                            <>
-                                <Grid
-                                    item
-                                    key={i}
-                                    xs={numRows > 1 ? 6 : 12}
-                                    sx={{
-                                        display: "flex",
-                                        justifyContent: "center",
-                                        alignItems: "center"
-                                    }}
-                                >
-                                    <Card sx={{
-                                        border: "none",
-                                        boxShadow: "none", maxWidth: "-webkit-fill-available", p: 1
-                                    }}>
-                                        <CardActionArea>
-                                            <CardMedia
-                                                component="img"
-                                                height="100%"
-                                                image={item.img}
-                                                alt={item.img}
-                                                sx={style.gridMedia}
-                                            />
-                                            <Typography gutterBottom
-                                                sx={{ fontSize: "small" }}>
-                                                {item.title}
-                                            </Typography>
-                                        </CardActionArea>
-                                    </Card>
-                                </Grid>
-                            </>
-                        ))}
-
-                    <Grid item xs={12}>
-                        <Link sx={{ p: 2, fontSize: "small" }}>Show more</Link>
-                    </Grid>
+    const renderFooter = () => {
+        return (
+            <React.Fragment>
+                <Grid item xs={12}>
+                    <Link sx={{ float: "right", marginRight: 2, fontSize: "x-small" }}>Show more</Link>
                 </Grid>
                 <br />
+            </React.Fragment>
+        );
+    }
+
+
+    return (
+
+        <React.Fragment>
+            <Paper square variant="outlined" sx={{ borderRadius: 2, maxWidth: 300 }}>
+                <Grid container >
+                    {renderTitle()}
+                    {renderOffers()}
+                    {renderFooter()}
+                </Grid>
             </Paper>
-        </>
+        </React.Fragment>
     );
 };
 
