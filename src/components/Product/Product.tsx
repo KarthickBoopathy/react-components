@@ -21,7 +21,7 @@ const Product = () => {
                 <ProductCost data={data} />
             </Grid>
             <Grid item xs={12}>
-                <ProductDescription specifications={data?.specifications} description={data?.description}/>
+                <ProductDescription specifications={data?.specifications} description={data?.description} />
             </Grid>
         </Grid>
     );

@@ -17,5 +17,6 @@ export const APPLICATION_MENUS: any[] = [
         menu: "Clothes",
         path: CLOTHES,
         component: Product
-    }
+    },
+
 ]
