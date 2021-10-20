@@ -1,4 +1,5 @@
 import {
+    Divider,
     List,
     ListItem,
     ListItemButton,
@@ -25,6 +26,10 @@ const SideNav = ({ navMenus }: Props) => {
         <Box sx={{ width: 300, bgcolor: "background.paper" }}>
             <nav aria-label="sidenav">
                 <List>
+                    <ListItem sx={{ textAlign: "center", bgcolor: "#3b5998" }}>
+                        <ListItemText primary="Hello Chief !!" sx={{ color: "white" }} />
+                    </ListItem>
+                    <Divider />
                     {navMenus.map((item, i) => (
                         <ListItem key={i} >
                             <ListItemButton onClick={() => navigateTo(item.path)} sx={style.sideNav}>
