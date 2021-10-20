@@ -1,8 +1,7 @@
 import "bootstrap/dist/css/bootstrap.css";
 import { Nav, Navbar } from "react-bootstrap";
 import NavbarToggle from "react-bootstrap/esm/NavbarToggle";
-import NavbarCollapse from "react-bootstrap/esm/NavbarCollapse";
-import { APPLICATION_MENUS } from "./Root";
+import { ACCOUNT, APPLICATION_MENUS } from "./Root";
 import React, { useCallback, useState } from "react";
 import { Route, useHistory } from "react-router-dom";
 import {
@@ -21,14 +20,15 @@ import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import ShoppingBasketIcon from "@mui/icons-material/ShoppingBasket";
 import LockOpenIcon from '@mui/icons-material/LockOpen';
-import MyAccount from "./MyAccount";
+import SideNav from "./SideNav";
 
 const NavBars = () => {
     const history = useHistory();
     const tabScreen = useMediaQuery("(max-width:1200px)");
 
     const [search, SetSearch] = useState("");
-    const [myAccount, SetMyAccount] = useState(false);
+    const [openSideNav, SetOpenSideNav] = useState(false);
+    const [menu, SetMenu] = useState<any[]>([]);
 
     const navigateTo = useCallback(
         (path) => {
@@ -48,8 +48,10 @@ const NavBars = () => {
         if (search) console.log("search", search);
     }, [search]);
 
-    const toggleMyAccount = (open: boolean) => {
-        SetMyAccount(open);
+    const toggleSideNav = (open: boolean, menuList?: any[]) => {
+        SetOpenSideNav(open);
+        if (menuList)
+            SetMenu(menuList);
     };
 
     const renderSignOut = () => {
@@ -109,16 +111,19 @@ const NavBars = () => {
         return (
             <React.Fragment>
                 <Navbar style={{ background: "#3b5998" }} variant="dark" expand="xl">
-                    <NavbarToggle style={{ marginLeft: 15 }} />
-                    <NavbarCollapse>
+
+                    {tabScreen ?
+                        <NavbarToggle style={{ marginLeft: 15 }} onClick={() => toggleSideNav(true, APPLICATION_MENUS)} /> :
+
                         <Nav style={{ padding: 10 }}>
                             {APPLICATION_MENUS.map((item, i) => (
-                                <Nav.Link key={i} style={{textAlign: "center"}} onClick={() => navigateTo(item.path)}>
+                                <Nav.Link key={i} style={{ textAlign: "center" }} onClick={() => navigateTo(item.path)}>
                                     {item.menu}
                                 </Nav.Link>
                             ))}
                         </Nav>
-                    </NavbarCollapse>
+                    }
+
                     <Nav className="ms-auto" style={{ marginRight: 15 }}>
                         {tabScreen && renderSignIn()}
                     </Nav>
@@ -145,7 +150,7 @@ const NavBars = () => {
                         key="account"
                         icon={<AccountCircleIcon />}
                         tooltipTitle="My Account"
-                        onClick={() => toggleMyAccount(true)}
+                        onClick={() => toggleSideNav(true, ACCOUNT)}
                     />
 
                     <SpeedDialAction
@@ -155,16 +160,24 @@ const NavBars = () => {
                         onClick={() => navigateTo("/MyCart")}
                     />
                 </SpeedDial>
-                <Drawer
-                    anchor="left"
-                    open={myAccount}
-                    onClose={() => toggleMyAccount(false)}
-                >
-                    <MyAccount/>
-                </Drawer>
+
             </>
         );
     };
+
+    const renderSideNav = () => {
+        return (
+            <React.Fragment>
+                <Drawer
+                    anchor="left"
+                    open={openSideNav}
+                    onClose={() => toggleSideNav(false)}
+                >
+                    <SideNav navMenus={menu} />
+                </Drawer>
+            </React.Fragment>
+        )
+    }
 
     const renderRouter = () => {
         return (
@@ -183,6 +196,7 @@ const NavBars = () => {
             {renderMenusNavBar()}
             {renderRouter()}
             {renderSpeedDial()}
+            {renderSideNav()}
         </React.Fragment>
     );
 };
