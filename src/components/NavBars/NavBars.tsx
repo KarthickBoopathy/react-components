@@ -20,7 +20,8 @@ import PowerSettingsNewIcon from "@mui/icons-material/PowerSettingsNew";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import ShoppingBasketIcon from "@mui/icons-material/ShoppingBasket";
-
+import LockOpenIcon from '@mui/icons-material/LockOpen';
+import MyAccount from "./MyAccount";
 
 const NavBars = () => {
     const history = useHistory();
@@ -59,6 +60,14 @@ const NavBars = () => {
         );
     };
 
+    const renderSignIn = () => {
+        return (
+            <Nav.Link onClick={() => navigateTo("/Home")}>
+                {tabScreen ? <LockOpenIcon /> : "Sign In"}
+            </Nav.Link>
+        );
+    };
+
     const renderLogoNavBar = () => {
         return (
             <React.Fragment>
@@ -90,7 +99,7 @@ const NavBars = () => {
                         variant="standard"
                     />
 
-                    <Nav style={{ margin: "auto" }}>{!tabScreen && renderSignOut()}</Nav>
+                    <Nav style={{ margin: "auto" }}>{!tabScreen && renderSignIn()}</Nav>
                 </Navbar>
             </React.Fragment>
         );
@@ -104,14 +113,14 @@ const NavBars = () => {
                     <NavbarCollapse>
                         <Nav style={{ padding: 10 }}>
                             {APPLICATION_MENUS.map((item, i) => (
-                                <Nav.Link key={i} onClick={() => navigateTo(item.path)}>
+                                <Nav.Link key={i} style={{textAlign: "center"}} onClick={() => navigateTo(item.path)}>
                                     {item.menu}
                                 </Nav.Link>
                             ))}
                         </Nav>
                     </NavbarCollapse>
                     <Nav className="ms-auto" style={{ marginRight: 15 }}>
-                        {tabScreen && renderSignOut()}
+                        {tabScreen && renderSignIn()}
                     </Nav>
                 </Navbar>
             </React.Fragment>
@@ -151,7 +160,7 @@ const NavBars = () => {
                     open={myAccount}
                     onClose={() => toggleMyAccount(false)}
                 >
-                    <h1>Hi</h1>
+                    <MyAccount/>
                 </Drawer>
             </>
         );
