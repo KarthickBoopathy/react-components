@@ -55,4 +55,10 @@ export const style = {
       transform: "scale(1.075)",
     },
   },
+  sideNav: {
+    "&:hover": {
+      background: "#f50057",
+      color: "white",
+    },
+  },
 };
