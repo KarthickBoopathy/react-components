@@ -1,5 +1,4 @@
 import {
-    Divider,
     List,
     ListItem,
     ListItemButton,
@@ -9,8 +8,12 @@ import { Box } from "@mui/system";
 import { useCallback } from "react";
 import { useHistory } from "react-router-dom";
 import { style } from "../../common/style";
-import { ACCOUNT } from "./Root";
-const MyAccount = () => {
+
+type Props = {
+    navMenus: any[]
+}
+
+const SideNav = ({ navMenus }: Props) => {
     const history = useHistory();
     const navigateTo = useCallback(
         (path) => {
@@ -22,8 +25,8 @@ const MyAccount = () => {
         <Box sx={{ width: 300, bgcolor: "background.paper" }}>
             <nav aria-label="sidenav">
                 <List>
-                    {ACCOUNT.map((item) => (
-                        <ListItem >
+                    {navMenus.map((item, i) => (
+                        <ListItem key={i} >
                             <ListItemButton onClick={() => navigateTo(item.path)} sx={style.sideNav}>
                                 <ListItemText primary={item.menu} sx={{ textAlign: "center" }} />
                             </ListItemButton>
@@ -36,4 +39,4 @@ const MyAccount = () => {
     );
 };
 
-export default MyAccount;
+export default SideNav;

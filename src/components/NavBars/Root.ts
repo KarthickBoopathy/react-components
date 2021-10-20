@@ -22,7 +22,7 @@ export const APPLICATION_MENUS: any[] = [
 
 export const ACCOUNT: any[] = [
   {
-    menu: "Mobiles",
+    menu: "Account",
     path: MOBILE,
     component: Product,
   },
