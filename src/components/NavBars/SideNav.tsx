@@ -1,10 +1,4 @@
-import {
-    Divider,
-    List,
-    ListItem,
-    ListItemButton,
-    ListItemText,
-} from "@mui/material";
+import { List, ListItem, ListItemButton, ListItemText } from "@mui/material";
 import { Box } from "@mui/system";
 import { useCallback } from "react";
 import { useHistory } from "react-router-dom";
@@ -29,7 +23,7 @@ const SideNav = ({ navMenus }: Props) => {
                     <ListItem sx={{ textAlign: "center", bgcolor: "#3b5998" }}>
                         <ListItemText primary="Hello Chief !!" sx={{ color: "white" }} />
                     </ListItem>
-                    <Divider />
+
                     {navMenus.map((item, i) => (
                         <ListItem key={i} >
                             <ListItemButton onClick={() => navigateTo(item.path)} sx={style.sideNav}>
