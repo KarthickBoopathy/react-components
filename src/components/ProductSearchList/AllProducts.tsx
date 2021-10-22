@@ -3,7 +3,7 @@ import React, { useCallback, useEffect, useState } from "react";
 import { productSearchListData } from "../../data/data";
 import ProductList from "./ProductList";
 
-const ProductSearchList = () => {
+const AllProducts = () => {
     const [data, SetData] = useState<any[]>([]);
 
     useEffect(() => {
@@ -18,7 +18,7 @@ const ProductSearchList = () => {
 
 
     return (
-        <Stack>
+        <Stack sx={{maxWidth: 600}}>
             <ProductList data={data} />
             <Pagination count={10} sx={{ display: "flex", justifyContent: "center" }} onChange={handleChange} />
             <br />
@@ -26,4 +26,4 @@ const ProductSearchList = () => {
     );
 }
 
-export default ProductSearchList;
+export default AllProducts;
