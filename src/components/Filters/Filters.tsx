@@ -109,7 +109,7 @@ const Filters = () => {
 
     return (
 
-            <Box sx={{width: "15%",p: 2,height: "100vh"}}>
+            <Box sx={{width: "50%",p: 2,height: "100vh"}}>
                 {renderPriceRange()}
                 {renderPopularity()}
                 {renderBrands()}

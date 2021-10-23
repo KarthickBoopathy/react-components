@@ -18,7 +18,7 @@ const AllProducts = () => {
 
 
     return (
-        <Stack sx={{maxWidth: 600}}>
+        <Stack sx={{maxWidth: 800}}>
             <ProductList data={data} />
             <Pagination count={10} sx={{ display: "flex", justifyContent: "center" }} onChange={handleChange} />
             <br />
