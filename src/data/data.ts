@@ -37,8 +37,6 @@ export const productSearchListData = [
   },
 ];
 
-
-
 export const productData: productDetails = {
   productId: "p001",
   title:
@@ -74,7 +72,7 @@ export const productData: productDetails = {
   specifications: {
     "Model Name": "Samsung Galaxy M52 5G",
     "Wireless Carrier": "Unlocked for All Carriers",
-    "Brand": "Samsung",
+    Brand: "Samsung",
     "Form factor": "Bar",
   },
   replacementInDays: 7,
@@ -82,9 +80,7 @@ export const productData: productDetails = {
   warrantyInYear: 1,
 };
 
-
 export const gridData: gridDao = {
-
   gridPart: [
     {
       header: "Under ₹599 | Pocket-friendly Fashion Under -friendly Fashion",
@@ -92,22 +88,18 @@ export const gridData: gridDao = {
         {
           img: "https://images.unsplash.com/photo-1551963831-b3b1ca40c98e",
           title: "Mens Collection",
-
         },
         {
           img: "https://images.unsplash.com/photo-1551782450-a2132b4ba21d",
           title: "Womens Collection",
-
         },
         {
           img: "https://images.unsplash.com/photo-1522770179533-24471fcdba45",
           title: "Mens Footwear",
-
         },
         {
           img: "https://images.unsplash.com/photo-1444418776041-9c7e33cc5a9c",
           title: "Womens Featwear",
-
         },
       ],
     },
@@ -118,7 +110,6 @@ export const gridData: gridDao = {
         {
           img: "https://images.unsplash.com/photo-1551963831-b3b1ca40c98e",
           title: "Mens Hifi",
-
         },
         // {
         //   img: "https://images.unsplash.com/photo-1551782450-a2132b4ba21d",
@@ -136,6 +127,45 @@ export const gridData: gridDao = {
 
         // },
       ],
-    }
+    },
   ],
-    }
+};
+
+export const offerGridData: any[] = [
+  {
+    offerTitle: "Under ₹599 | Pocket-friendly Fashion Under -friendly Fashion",
+    products: [
+      {
+        showCaseImage:
+          "https://images.unsplash.com/photo-1551963831-b3b1ca40c98e",
+        title: "Mens Collection",
+      },
+      {
+        showCaseImage:
+          "https://images.unsplash.com/photo-1551782450-a2132b4ba21d",
+        title: "Womens Collection",
+      },
+      {
+        showCaseImage:
+          "https://images.unsplash.com/photo-1522770179533-24471fcdba45",
+        title: "Mens Footwear",
+      },
+      {
+        showCaseImage:
+          "https://images.unsplash.com/photo-1444418776041-9c7e33cc5a9c",
+        title: "Womens Featwear",
+      },
+    ],
+  },
+
+  {
+    offerTitle: "Under ₹1599 | Hifi Fashion Under -friendly Fashion",
+    products: [
+      {
+        showCaseImage:
+          "https://images.unsplash.com/photo-1551963831-b3b1ca40c98e",
+        title: "Mens Hifi",
+      },
+    ],
+  },
+];

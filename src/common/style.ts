@@ -61,4 +61,19 @@ export const style = {
       color: "white",
     },
   },
+  offerGridTitle: {
+    fontSize: "x-small",
+    cursor: "pointer",
+    "&:hover": {
+      color: "red",
+    },
+  },
+  offerGridOfferTitle: {
+    fontSize: "small",
+    color: "#1868b7",
+    cursor: "pointer",
+    "&:hover": {
+      color: "#1b2a38",
+    },
+  },
 };
