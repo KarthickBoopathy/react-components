@@ -1,4 +1,4 @@
-import { productDetails } from "../types/schema";
+import { gridDao, productDetails } from "../types/schema";
 
 export const productSearchListData = [
   {
@@ -83,25 +83,59 @@ export const productData: productDetails = {
 };
 
 
-export const itemData = [
-  {
-      img: "https://images.unsplash.com/photo-1551963831-b3b1ca40c98e",
-      title: "Mens Collection",
-      link: ""
-  },
-  {
-      img: "https://images.unsplash.com/photo-1551782450-a2132b4ba21d",
-      title: "Womens Collection",
-      link: ""
-  },
-  {
-      img: "https://images.unsplash.com/photo-1522770179533-24471fcdba45",
-      title: "Mens Footwear",
-      link: ""
-  },
-  {
-      img: "https://images.unsplash.com/photo-1444418776041-9c7e33cc5a9c",
-      title: "Womens Featwear",
-      link: ""
-  },
-];
+export const gridData: gridDao = {
+
+  gridPart: [
+    {
+      header: "Under ₹599 | Pocket-friendly Fashion Under -friendly Fashion",
+      imgDetails: [
+        {
+          img: "https://images.unsplash.com/photo-1551963831-b3b1ca40c98e",
+          title: "Mens Collection",
+
+        },
+        {
+          img: "https://images.unsplash.com/photo-1551782450-a2132b4ba21d",
+          title: "Womens Collection",
+
+        },
+        {
+          img: "https://images.unsplash.com/photo-1522770179533-24471fcdba45",
+          title: "Mens Footwear",
+
+        },
+        {
+          img: "https://images.unsplash.com/photo-1444418776041-9c7e33cc5a9c",
+          title: "Womens Featwear",
+
+        },
+      ],
+    },
+
+    {
+      header: "Under ₹1599 | Hifi Fashion Under -friendly Fashion",
+      imgDetails: [
+        {
+          img: "https://images.unsplash.com/photo-1551963831-b3b1ca40c98e",
+          title: "Mens Hifi",
+
+        },
+        // {
+        //   img: "https://images.unsplash.com/photo-1551782450-a2132b4ba21d",
+        //   title: "Womens Hifi",
+
+        // },
+        // {
+        //   img: "https://images.unsplash.com/photo-1522770179533-24471fcdba45",
+        //   title: "Mens Hifi",
+
+        // },
+        // {
+        //   img: "https://images.unsplash.com/photo-1444418776041-9c7e33cc5a9c",
+        //   title: "Womens Hifi",
+
+        // },
+      ],
+    }
+  ],
+    }

@@ -14,3 +14,17 @@ export type productDetails = {
   deliveryService?: string;
   warrantyInYear?: number;
 };
+
+export type gridDetails = {
+  header?: string;
+  imgDetails?: imageDetails[];
+};
+
+export type imageDetails = {
+  img?: string;
+  title?: string;
+};
+
+export type gridDao = {
+  gridPart?: gridDetails[];
+};
