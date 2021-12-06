@@ -21,6 +21,7 @@ import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import ShoppingBasketIcon from "@mui/icons-material/ShoppingBasket";
 import LockOpenIcon from '@mui/icons-material/LockOpen';
 import SideNav from "./SideNav";
+import SearchList from "../../pages/SearchList";
 
 const NavBars = () => {
     const history = useHistory();
@@ -182,7 +183,7 @@ const NavBars = () => {
     const renderRouter = () => {
         return (
             <React.Fragment>
-                <Route exact path="/" component={Product} />
+                <Route exact path="/" component={SearchList} />
                 {APPLICATION_MENUS.map((item, i) => (
                     <Route key={i} path={item.path} component={item.component} />
                 ))}

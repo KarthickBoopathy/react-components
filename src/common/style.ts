@@ -61,4 +61,12 @@ export const style = {
       color: "white",
     },
   },
+  filterButton: {
+    transition: "transform .2s",
+    "&:hover": {
+      msTransform: "scale(1.075)",
+      WebkitTransform: "scale(1.075)",
+      transform: "scale(1.075)",
+    },
+  },
 };

@@ -1,5 +1,5 @@
 import Product from "../Product/Product";
-import ProductSearchList from "../ProductSearchList/ProductSearchList";
+import AllProducts from "../ProductSearchList/AllProducts";
 import { CLOTHES, LIST, MOBILE } from "./Route";
 
 export const APPLICATION_MENUS: any[] = [
@@ -11,7 +11,7 @@ export const APPLICATION_MENUS: any[] = [
   {
     menu: "List",
     path: LIST,
-    component: ProductSearchList,
+    component: AllProducts,
   },
   {
     menu: "Clothes",
@@ -29,7 +29,7 @@ export const ACCOUNT: any[] = [
   {
     menu: "List",
     path: LIST,
-    component: ProductSearchList,
+    component: AllProducts,
   },
   {
     menu: "Clothes",

@@ -37,8 +37,6 @@ export const productSearchListData = [
   },
 ];
 
-
-
 export const productData: productDetails = {
   productId: "p001",
   title:
@@ -74,10 +72,16 @@ export const productData: productDetails = {
   specifications: {
     "Model Name": "Samsung Galaxy M52 5G",
     "Wireless Carrier": "Unlocked for All Carriers",
-    "Brand": "Samsung",
+    Brand: "Samsung",
     "Form factor": "Bar",
   },
   replacementInDays: 7,
   deliveryService: "DTH",
   warrantyInYear: 1,
 };
+
+export const brands: any[] = [
+  { brandID: "brandID111", brandName: "Samsung", isChecked: false },
+  { brandID: "brandID222", brandName: "Motorola", isChecked: false },
+  { brandID: "brandID333", brandName: "Nokia", isChecked: false },
+];
