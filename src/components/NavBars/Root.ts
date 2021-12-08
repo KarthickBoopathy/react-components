@@ -1,6 +1,7 @@
 import Product from "../Product/Product";
 import AllProducts from "../ProductSearchList/AllProducts";
-import { CLOTHES, LIST, MOBILE } from "./Route";
+import TimeLine from "../Timeline/TimeLine";
+import { CLOTHES, LIST, MOBILE, TIMELINE } from "./Route";
 
 export const APPLICATION_MENUS: any[] = [
   {
@@ -18,6 +19,11 @@ export const APPLICATION_MENUS: any[] = [
     path: CLOTHES,
     component: Product,
   },
+  {
+    menu: "TimeLine",
+    path: TIMELINE,
+    component: TimeLine,
+  }
 ];
 
 export const ACCOUNT: any[] = [
