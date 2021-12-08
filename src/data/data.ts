@@ -85,3 +85,21 @@ export const brands: any[] = [
   { brandID: "brandID222", brandName: "Motorola", isChecked: false },
   { brandID: "brandID333", brandName: "Nokia", isChecked: false },
 ];
+export const timeLineData: any[] = [
+  {
+    timeLineImage: "https://picsum.photos/800/400?text=First slide&bg=373940",
+    categoryId: "cat1",
+  },
+  {
+    timeLineImage: "https://picsum.photos/800/400?text=Second slide&bg=282c34",
+    categoryId: "cat2",
+  },
+  {
+    timeLineImage: "https://picsum.photos/800/400?text=Third slide&bg=20232a",
+    categoryId: "cat3",
+  },
+  {
+    timeLineImage: "https://picsum.photos/800/400?text=Fourth slide&bg=20232a",
+    categoryId: "cat4",
+  },
+]
